@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/server.js",
     "start:dev": "nodemon -L --inspect=0.0.0.0:9229 src/server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "test:watch": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,10 @@
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "nodemon": "^3.1.10"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.3",
+    "babel-jest": "^30.0.5",
+    "jest": "^30.0.5"
   }
 }
