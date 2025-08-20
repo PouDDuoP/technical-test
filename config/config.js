@@ -1,4 +1,4 @@
-require('dotenv').config();
+import 'dotenv/config';
 
 const config = {
   env: process.env.NODE_ENV || 'development',
@@ -7,4 +7,4 @@ const config = {
   secret: process.env.SECRET,
 }
 
-module.exports = { config }
+export default config 
