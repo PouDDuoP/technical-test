@@ -1,0 +1,25 @@
+# version: "3.9"
+services:
+  # Para desarrolllo
+  technical-test-0:
+    container_name:   technical-test-0
+    restart: always
+    # restart: unless-stopped
+    build:
+      context: .
+      target: development
+      dockerfile: Dockerfile
+      args:
+        - PORT=${PORT}
+    # command: npm run start:dev
+    ports:
+      - "${PORT}:${PORT}"
+      - "9229:9229"
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      # - node_modules:/usr/src/app/node_modules
+      - ./node_modules:/usr/src/app/node_modules
+
+
