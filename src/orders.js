@@ -37,23 +37,22 @@ export function productSummaryQuadratic(orders = ORDERS) {
 // - Mantener salida: [{sku, qty, amount}] ordenada por amount desc
 export function productSummaryLinear(orders = ORDERS) {
   const summary = orders.flatMap(order => order.items);
-  const summaryMap = new Map();
 
-  const summaryReduce = summary.reduce((acc , item) => {
+  const summaryMap = summary.reduce((map , item) => {
     const sku = item.sku;
     const qty = item.qty; 
     const price = item.price;
     const amount = qty * price;
 
-    if (summaryMap.has(sku)) {
-      const exist = summaryMap.get(sku);
+    if (map.has(sku)) {
+      const exist = map.get(sku);
       exist.qty += qty;
       exist.amount += amount;
     } else {
-      summaryMap.set(sku, { sku, qty, amount });
+      map.set(sku, { sku, qty, amount });
     }
-    return summaryMap;
-  });
+    return map;
+  }, new Map());
 
   // const summaryMap = new Map();
   // for (const order of orders) {
@@ -74,10 +73,10 @@ export function productSummaryLinear(orders = ORDERS) {
   //     }
   //   }
   // }
-  // console.log(Object.fromEntries(summaryMap))
+  console.log(Object.fromEntries(summaryMap))
 
   const summaryArray = Array.from(summaryMap.values());
   summaryArray.sort((a, b) => b.amount - a.amount);
 
-  return [summaryArray];
+  return summaryArray;
 }
