@@ -9,5 +9,5 @@ app.listen(PORT, () => {
   console.log(`Server running in ${config.env} mode on port ${PORT}`);
 });
 
-// app.use(express.json());
-// app.use('/api', routes);
+app.use(express.json());
+app.use('/api', routes);
