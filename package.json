@@ -1,0 +1,19 @@
+{
+  "name": "technical-test",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "start:dev": "nodemon -L --inspect=0.0.0.0:9229 src/server.js",
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
